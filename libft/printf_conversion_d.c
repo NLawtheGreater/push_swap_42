@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   printf_conversion_d.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 17:13:47 by niclaw            #+#    #+#             */
-/*   Updated: 2022/09/05 12:29:38 by niclaw           ###   ########.fr       */
+/*   Created: 2022/10/28 21:21:53 by niclaw            #+#    #+#             */
+/*   Updated: 2022/10/28 21:21:56 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_isdigit(char c)
+/*1.Use i to a to change integer into string
+**2.Store into *str and pass back*/
+char	*conversion_d(int d)
 {
-	if (c == '-' || (c >= '0' && c <= '9'))
-		return (1);
-	else
-		return (0);
+	char	*str;
+
+	str = ft_itoa(d);
+	if (!str)
+		return (NULL);
+	return (str);
 }
-
-/*int main()
-{
-	printf("%u\n",ft_isdigit(8));
-	printf("%u",ft_isdigit(52));	
-}*/

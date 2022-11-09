@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   printf_conversion_c.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 17:13:47 by niclaw            #+#    #+#             */
-/*   Updated: 2022/09/05 12:29:38 by niclaw           ###   ########.fr       */
+/*   Created: 2022/10/28 21:21:41 by niclaw            #+#    #+#             */
+/*   Updated: 2022/10/28 21:21:43 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_isdigit(char c)
+/*1. memallocate for 2 char
+**2. put character into *str
+*/
+char	*conversion_c(char c)
 {
-	if (c == '-' || (c >= '0' && c <= '9'))
-		return (1);
-	else
-		return (0);
+	char	*str;
+
+	str = ft_calloc(sizeof(char), 2);
+	if (!str)
+		return (NULL);
+	str[0] = c;
+	return (str);
 }
-
-/*int main()
-{
-	printf("%u\n",ft_isdigit(8));
-	printf("%u",ft_isdigit(52));	
-}*/

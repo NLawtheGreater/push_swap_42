@@ -13,6 +13,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -24,7 +25,7 @@ void	*ft_realloc(void *ptr, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
-int		ft_isdigit(int c);
+int		ft_isdigit(char c);
 int		ft_isprint(int c);
 size_t	ft_strlen(char const *str);
 int		ft_tolower(int c);
@@ -56,5 +57,33 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
+typedef struct s_format
+{
+	int		minus;
+	int		plus;
+	int		space;
+	int		zero;
+	int		hash;
+	int		dot;
+	int		width;
+	int		pcs;
+	char	type;
+}			t_format;
+
+# define F_TYPE "cspdiuxX%"
+
+int		ft_printf(const char *str, ...);
+void	reset_format(t_format *f);
+int		set_format1(char c, t_format *f);
+char	*set_format2(char *format, char c, int i);
+char	*conversion_type(va_list ptr, t_format *f);
+char	*conversion_c(char c);
+char	*conversion_s(char *s);
+char	*conversion_p(size_t ptr);
+char	*conversion_d(int d);
+char	*conversion_u(unsigned int d);
+char	*conversion_x(unsigned int nb, int is_upper);
+char	*hexconvert(size_t nb, int is_upper);
+int		hexlen(size_t nb);
 
 #endif

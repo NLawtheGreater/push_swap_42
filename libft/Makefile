@@ -18,7 +18,10 @@ SRCLIST	= ft_realloc.c\
 		  ft_strtrim.c ft_atoi.c ft_itoa.c ft_strmapi.c ft_striteri.c\
 		  ft_split.c ft_strncmp.c ft_strchr.c  ft_putchar_fd.c\
 		  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_strdup.c\
-		  ft_strlcat.c ft_strlcpy.c ft_strrchr.c ft_strnstr.c
+		  ft_strlcat.c ft_strlcpy.c ft_strrchr.c ft_strnstr.c\
+			printf_format.c ft_printf.c  printf_conversion_x.c printf_conversion_u.c \
+			printf_conversion_type.c printf_conversion_s.c printf_conversion_p.c \
+			printf_conversion_d.c printf_conversion_c.c
 SRCDIR	= 
 BONUS_SRC	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c\
 				ft_lstsize_bonus.c ft_lstlast_bonus.c\
