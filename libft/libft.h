@@ -14,13 +14,22 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <limits.h>
 
-typedef struct s_list
+
+typedef struct s_stack
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+    int 			data;
+    struct s_stack* next;
+}					t_stack;
 
+t_stack	*ft_lstlast(t_stack *lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*ft_lstnew(int data);
+int	check_dup(t_stack **a);
+void	ft_lstclear(t_stack **lst);
+void	ft_lstdelfront(t_stack **lst);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	*ft_realloc(void *ptr, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -37,7 +46,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, unsigned int n);
 char	*ft_strnstr(const char *haystack, \
 		const char *needle, size_t len);
-int		ft_atoi(char *str);
+int		ft_atoi(char *str, t_stack **a);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

@@ -37,7 +37,7 @@ TESTER4		=
 # the name of your .c go here. SRC is for mandatory, BONUS is for the bonus. 
 # SHARE is for .c file that your mandatory and bonus use. LIBFT is where your specific libft .c file go.
 
-SRC	=	push_swap.c stack_act3.c stack_act1.c stack_act2.c 
+SRC	=	push_swap.c stack_act3.c stack_act1.c stack_act2.c va_12.c
 
 BONUS	=	
 
@@ -116,14 +116,15 @@ fclean:	clean
 re:	fclean all
 
 ## PUSH_SWAP ##
-NUM	=6 5 4 
+NUM	=1..10
 
-test:	re
-	./push_swap $(NUM)
+test:	
+	ARG=`ruby -e "puts (1..10).to_a.to_a.shuffle.join(' ')"`
+	./push_swap $$ARG
 
 test2:	re
 	${CC} ${CFLAGS} -I ${HEAD} -o ${NAME} playground.c
-	./push_swap $(NUM)
+	./push_swap $(NUM) > check.txt
 
 mem:	re
 	./push_swap

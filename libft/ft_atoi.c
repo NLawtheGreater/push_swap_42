@@ -12,7 +12,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-static int	overlength(int negcount, const char *str, int i, long long sigma)
+/*static int	overlength(int negcount, const char *str, int i, long long sigma)
 {
 	if ((negcount == -1) && ((sigma > (9223372036854775807 / 10))
 			|| (sigma == (9223372036854775807 / 10) && str[i] - '0' > 8)))
@@ -21,37 +21,45 @@ static int	overlength(int negcount, const char *str, int i, long long sigma)
 			|| (sigma == (9223372036854775807 / 10) && str[i] - '0' > 7)))
 		return (-1);
 	return (0);
-}
+}*/
 
-static int	rec_atoi(char *str, int start)
+static int	rec_atoi(char *str, int start, t_stack **a)
 {
 	long long	sigma;
 	int			negcount;
 
-	if (str[start] == ' ' || (str[start] >= 9 && str[start] <= 13))
-		return (rec_atoi(str, start + 1));
+	if (!((str[start] == '-' && (str[start + 1] >= '1' && str[start + 1] <= '9')) ||\
+	 (str[start] >= '0' && str[start] <= '9')))
+	{	
+		ft_lstclear(a);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	negcount = 1;
-	if (str[start] == '+' || str[start] == '-')
+	if (str[start] == '-')
 	{
-		if (str[start] == '-')
-			negcount = -1;
+		negcount = -1;
 		start++;
 	}
 	sigma = 0;
-	while (str[start] >= '0' && str[start] <= '9')
+	while (str[start] != '\0')
 	{
-		if (sigma > (9223372036854775807 / 10) || (sigma == \
-			(9223372036854775807 / 10) && str[start] - '0' > 7))
-			return (overlength(negcount, str, start, sigma));
+		if (!(str[start] >= '0' && str[start] <= '9') ||\
+		sigma > (INT_MAX) || (sigma * negcount) < INT_MIN)
+		{
+			ft_lstclear(a);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
 		sigma = (str[start] - '0') + (sigma * 10);
 		start++;
 	}
 	return (negcount * sigma);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(char *str, t_stack** a)
 {
-	return (rec_atoi(str, 0));
+	return (rec_atoi(str, 0, a));
 }
 
 /*int	ft_atoi(char *str);

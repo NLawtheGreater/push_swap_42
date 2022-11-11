@@ -53,7 +53,7 @@ void pa(t_stack **b, t_stack **a)
 	{
 		tmp = ft_lstnew((*b)->data);
 		ft_lstadd_front(a, tmp);
-		ft_lstdelone(b);
+		ft_lstdelfront(b);
 	}
 	ft_printf("pa\n");
 }
@@ -66,7 +66,7 @@ void pb(t_stack **a, t_stack **b)
 	{
 		tmp = ft_lstnew((*a)->data);
 		ft_lstadd_front(b, tmp);
-		ft_lstdelone(a);
+		ft_lstdelfront(a);
 	}
 	ft_printf("pb\n");
 }
