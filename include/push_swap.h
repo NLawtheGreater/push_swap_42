@@ -20,6 +20,7 @@ int	smallest2(t_stack **stack);
 int	largest(t_stack **stack);
 int	largest2(t_stack **stack);
 void	va_3(t_stack **a, t_stack **b);
+void va_3_mirr(t_stack **a, t_stack	**b);
 void	lst_check(t_stack **lst);
 void run(t_stack **a, t_stack **b);
 void	run2(t_stack **a, t_stack **b);

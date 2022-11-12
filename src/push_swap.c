@@ -330,6 +330,87 @@ void va_3(t_stack **a, t_stack	**b)
 	}
 }
 
+void va_3_mirr(t_stack **a, t_stack	**b)
+{
+	int	a3;
+	//t_stack *tmp;
+
+	//tmp = ft_lstlast(*a);
+		a3 = (*a)->next->next->data;
+
+	if (count_stack(a) > 1)
+	{
+		if((*b)->next->data < (*b)->data)
+		{
+			if (a3 < (*a)->next->data  && (*a)->next->data  < (*a)->data)
+				sa(a);
+			else if (a3 < (*a)->data && (*a)->data < (*a)->next->data)
+				ss(a, b);
+			else if ((*a)->next->data < a3 && a3 < (*a)->data)
+			{
+				rrb(b);
+				ss(a, b);
+			}
+			else if ((*a)->next->data < (*a)->data && (*a)->data < a3)
+			{
+				rrb(b);
+			}
+			else if ((*a)->data < (*a)->next->data && (*a)->next->data < a3)
+			{
+				rb(b);
+				ss(a, b);
+			}
+			else if ((*a)->data < a3 && a3 < (*a)->next->data)
+				rb(b);
+		}
+			else
+		{
+			if (a3 < (*a)->next->data  && (*a)->next->data  < (*a)->data)
+				sa(a);
+			else if (a3 < (*a)->data && (*a)->data < (*a)->next->data)
+				sb(b);
+			else if ((*a)->next->data < a3 && a3 < (*a)->data)
+			{
+				rrb(b);
+				sb(b);
+			}
+			else if ((*a)->next->data < (*a)->data && (*a)->data < a3)
+			{
+				rrb(b);
+			}
+			else if ((*a)->data < (*a)->next->data && (*a)->next->data < a3)
+			{
+				rb(b);
+				sb(b);
+			}
+			else if ((*a)->data < a3 && a3 < (*a)->next->data)
+				rb(b);
+		}
+	}
+	else
+	{
+		if (a3 < (*a)->next->data  && (*a)->next->data  < (*a)->data)
+			sa(a);
+		else if (a3 < (*a)->data && (*a)->data < (*a)->next->data)
+			sb(b);
+		else if ((*a)->next->data < a3 && a3 < (*a)->data)
+		{
+			rrb(b);
+			sb(b);
+		}
+		else if ((*a)->next->data < (*a)->data && (*a)->data < a3)
+		{
+			rrb(b);
+		}
+		else if ((*a)->data < (*a)->next->data && (*a)->next->data < a3)
+		{
+			rb(b);
+			sb(b);
+		}
+		else if ((*a)->data < a3 && a3 < (*a)->next->data)
+			rb(b);
+	}
+}
 
 void	algo_l(t_stack **a, t_stack **b)
 {

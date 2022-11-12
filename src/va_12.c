@@ -42,12 +42,6 @@ void va_12(t_stack **a, t_stack **b, int total)
 		exit(1);
 	}
 	return3(a, b, total - 6);
-	ft_printf("This is a stack:\n");
-	lst_check(a);
-	ft_printf("\n");
-	ft_printf("This is b stack:\n");
-	lst_check(b);
-	ft_printf("\n");
 	
 	if (check_algo1(a, b))
 	{
@@ -56,6 +50,19 @@ void va_12(t_stack **a, t_stack **b, int total)
 		exit(1);
 	}
 	shift3_l(a, b, count_stack(b));
+	if (check_algo1(a, b))
+	{
+		algo_l(a, b);
+		ft_lstclear(a);
+		exit(1);
+	}
+	va_3_mirr(b, a);
+	ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");
 }
 
 void	return3(t_stack **a, t_stack **b, int bleft)

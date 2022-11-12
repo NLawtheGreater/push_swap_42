@@ -118,8 +118,10 @@ re:	fclean all
 ## PUSH_SWAP ##
 NUM	=1..10
 
-test:	
-	ARG=`ruby -e "puts (1..10).to_a.to_a.shuffle.join(' ')"`
+t1:	
+	ARG=`ruby -e "puts (1..10).to_a.to_a.shuffle.join(' ')"`	
+#ARG="4 7 8 9 10 11 12 13 14 15 16"
+t2:	
 	./push_swap $$ARG
 
 test2:	re
