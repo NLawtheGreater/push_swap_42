@@ -1,0 +1,67 @@
+-18586 -15934
+pb
+-15934 -15934
+ra
+ra
+pb
+552 -15934
+rra
+pb
+This is a stack:
+12767
+552
+1350
+
+This is b stack:
+13145
+-15934
+-18586
+
+ra
+This is a stack:
+552
+1350
+12767
+
+This is b stack:
+13145
+-15934
+-18586
+
+ra
+pa
+rra
+rra
+sa
+This is a stack:
+552
+12767
+13145
+1350
+
+This is b stack:
+-15934
+-18586
+
+pa
+This is a stack:
+-15934
+552
+12767
+13145
+1350
+
+This is b stack:
+-18586
+
+pa
+This is a stack:
+-18586
+-15934
+552
+12767
+13145
+1350
+
+This is b stack:
+
