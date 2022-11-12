@@ -336,55 +336,55 @@ void va_3_mirr(t_stack **a, t_stack	**b)
 	//t_stack *tmp;
 
 	//tmp = ft_lstlast(*a);
-		a3 = (*a)->next->next->data;
+	a3 = (*a)->next->next->data;
 
-	if (count_stack(a) > 1)
+	if (count_stack(b) > 1)
 	{
 		if((*b)->next->data < (*b)->data)
 		{
 			if (a3 < (*a)->next->data  && (*a)->next->data  < (*a)->data)
-				sa(a);
+				sa(b);
 			else if (a3 < (*a)->data && (*a)->data < (*a)->next->data)
 				ss(a, b);
 			else if ((*a)->next->data < a3 && a3 < (*a)->data)
 			{
-				rrb(b);
+				rrb(a);
 				ss(a, b);
 			}
 			else if ((*a)->next->data < (*a)->data && (*a)->data < a3)
 			{
-				rrb(b);
+				rrb(a);
 			}
 			else if ((*a)->data < (*a)->next->data && (*a)->next->data < a3)
 			{
-				rb(b);
+				rb(a);
 				ss(a, b);
 			}
 			else if ((*a)->data < a3 && a3 < (*a)->next->data)
-				rb(b);
+				rb(a);
 		}
 			else
 		{
 			if (a3 < (*a)->next->data  && (*a)->next->data  < (*a)->data)
 				sa(a);
 			else if (a3 < (*a)->data && (*a)->data < (*a)->next->data)
-				sb(b);
+				sb(a);
 			else if ((*a)->next->data < a3 && a3 < (*a)->data)
 			{
-				rrb(b);
-				sb(b);
+				rrb(a);
+				sb(a);
 			}
 			else if ((*a)->next->data < (*a)->data && (*a)->data < a3)
 			{
-				rrb(b);
+				rrb(a);
 			}
 			else if ((*a)->data < (*a)->next->data && (*a)->next->data < a3)
 			{
-				rb(b);
-				sb(b);
+				rb(a);
+				sb(a);
 			}
 			else if ((*a)->data < a3 && a3 < (*a)->next->data)
-				rb(b);
+				rb(a);
 		}
 	}
 	else
@@ -392,23 +392,23 @@ void va_3_mirr(t_stack **a, t_stack	**b)
 		if (a3 < (*a)->next->data  && (*a)->next->data  < (*a)->data)
 			sa(a);
 		else if (a3 < (*a)->data && (*a)->data < (*a)->next->data)
-			sb(b);
+			sb(a);
 		else if ((*a)->next->data < a3 && a3 < (*a)->data)
 		{
-			rrb(b);
-			sb(b);
+			rrb(a);
+			sb(a);
 		}
 		else if ((*a)->next->data < (*a)->data && (*a)->data < a3)
 		{
-			rrb(b);
+			rrb(a);
 		}
 		else if ((*a)->data < (*a)->next->data && (*a)->next->data < a3)
 		{
-			rb(b);
-			sb(b);
+			rb(a);
+			sb(a);
 		}
 		else if ((*a)->data < a3 && a3 < (*a)->next->data)
-			rb(b);
+			rb(a);
 	}
 }
 

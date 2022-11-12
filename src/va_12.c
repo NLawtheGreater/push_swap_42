@@ -57,12 +57,50 @@ void va_12(t_stack **a, t_stack **b, int total)
 		exit(1);
 	}
 	va_3_mirr(b, a);
+	if (check_algo1(a, b))
+	{
+		algo_l(a, b);
+		ft_lstclear(a);
+		exit(1);
+	}
+
+	return3_alt(a, b, 6);
 	ft_printf("This is a stack:\n");
 	lst_check(a);
 	ft_printf("\n");
 	ft_printf("This is b stack:\n");
 	lst_check(b);
 	ft_printf("\n");
+	if (check_algo1(a, b))
+	{
+		algo_l(a, b);
+		ft_lstclear(a);
+		exit(1);
+	}
+	while (count_stack(b) > 0)
+	{
+		seq = find_target(b, total, count);
+		count2 = 2;
+		if (seq <= ((count_stack(b))/2))
+		{
+			while (count2 <= seq)
+			{
+				rb(b);
+				count2++;
+			}
+		}
+		else
+		{
+			count2 = 0;
+			while (count2 <= (count_stack(b) - seq))
+			{
+				rrb(b);
+				count2++;
+			}
+
+		}
+		pa(b, a); 
+	}
 }
 
 void	return3(t_stack **a, t_stack **b, int bleft)
@@ -87,7 +125,7 @@ void	return3(t_stack **a, t_stack **b, int bleft)
 				pa(b, a);
 				rra(a);
 			}
-			else if((*b)->data < a5 && (*b)->data < (*a)->data)
+			else if((*b)->data < a5 && a5 < (*a)->data)
 			{
 				rra(a);
 				pa(b, a);
@@ -107,6 +145,50 @@ void	return3(t_stack **a, t_stack **b, int bleft)
 				rra(a);
 			}
 			va_3(a, b);
+		}
+}
+void	return3_alt(t_stack **a, t_stack **b, int bleft)
+{
+	int	b5;
+
+	while(count_stack(a) > bleft)
+		{
+			b5 = ft_lstlast(*b)->data;
+			if((*a)->data > (*b)->data && (*b)->data > b5)
+			{
+				pb(a, b);
+			}
+			else if((*a)->data < b5 && (*a)->data > (*b)->data)
+			{
+				pb(a, b);
+				rrb(b);
+			}
+			else if((*a)->data > (*b)->next->data && (*a)->data < (*b)->data)
+			{
+				rb(b);
+				pb(a, b);
+				rrb(b);
+			}
+			else if((*a)->data > b5 && b5 > (*b)->data)
+			{
+				rrb(b);
+				pb(a, b);
+			}
+			else if((*a)->data > b5 && (*a)->data < (*b)->data)
+			{
+				pa(b, a);
+				sa(a);
+				rrb(b);
+				pb(a, b);
+			}
+			else if((*a)->data < b5 && (*a)->data < (*b)->data)
+			{
+				rb(b);
+				pb(a, b);
+				rrb(b);
+				rrb(b);
+			}
+			va_3_mirr(b, a);
 		}
 }
 

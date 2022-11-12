@@ -6,6 +6,7 @@
 #include "libft.h"
 
 void	return3(t_stack **a, t_stack **b, int bleft);
+void	return3_alt(t_stack **a, t_stack **b, int bleft);
 int	alt_smallest3(t_stack **stack);
 int	alt_smallest2(t_stack **stack);
 int	alt_smallest(t_stack **stack);
