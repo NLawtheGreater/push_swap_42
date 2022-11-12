@@ -81,6 +81,7 @@ void va_12(t_stack **a, t_stack **b, int total)
 	{
 		seq = find_target(b, total, count);
 		count2 = 2;
+		count = 1;
 		if (seq <= ((count_stack(b))/2))
 		{
 			while (count2 <= seq)
@@ -99,7 +100,8 @@ void va_12(t_stack **a, t_stack **b, int total)
 			}
 
 		}
-		pa(b, a); 
+		pa(b, a);
+		count++; 
 	}
 }
 
@@ -292,6 +294,33 @@ int	find_target(t_stack **stack, int total, int count)
 	lst_check(stack);
 	ft_printf("\n");
 	ft_printf("%i-%i-%i\n", sm, sm_2, sm_3);
+	if(count > (total/2 - 2))
+		{
+		sm_2 = -1;
+		sm_3 = -1;
+		}
+	x = 0;
+	while(x < ((total - count)/2 + 1))
+	{
+		if(1 + x == sm || 1 + x == sm_2 || 1 + x == sm_3)
+			return (1 + x);
+		if((total - count + 1 - x) == sm || (total - count + 1 - x) == sm_2 ||\
+		 (total - count + 1 - x) == sm_3)
+			return (total - count + 1 - x);
+		x++;
+	}
+	return (0);
+}
+int	find_largtar(t_stack **stack, int total, int count)
+{
+	int	lg;
+	int	lg_2;
+	int	lg_3;
+	int	x;
+
+	lg = alt_largest(stack);
+	lg_2 = alt_largest2(stack);
+	lg_3 = alt_largest3(stack);
 	if(count > (total/2 - 2))
 		{
 		sm_2 = -1;
