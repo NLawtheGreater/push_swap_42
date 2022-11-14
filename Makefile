@@ -116,13 +116,13 @@ fclean:	clean
 re:	fclean all
 
 ## PUSH_SWAP ##
-NUM	=1..10
+NUM	=10 3 6 12 4 7 9 8 1 5 2 11
 
 t1:	
-	ARG=`ruby -e "puts (1..10).to_a.to_a.shuffle.join(' ')"`	
+	ARG=`ruby -e "puts (1..10).to_a.to_a.shuffle.join(' ')"` && ./push_swap $ARG
 #ARG="4 7 8 9 10 11 12 13 14 15 16"
 t2:	
-	./push_swap $$ARG
+	./push_swap 10 3 6 12 4 7 9 8 1 5 2 11
 
 test2:	re
 	${CC} ${CFLAGS} -I ${HEAD} -o ${NAME} playground.c

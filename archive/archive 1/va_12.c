@@ -10,6 +10,13 @@ void va_12(t_stack **a, t_stack **b, int total)
 	count = 1;
 	while (count <= (total/2))
 	{
+		/*ft_printf("This is a stack:\n");
+		lst_check(a);
+		ft_printf("\n");
+		ft_printf("This is b stack:\n");
+		lst_check(b);
+		ft_printf("\n");*/
+		
 		seq = find_target(a, total, count);
 		count2 = 2;
 		if (seq <= ((total - count + 1)/2))
@@ -34,21 +41,45 @@ void va_12(t_stack **a, t_stack **b, int total)
 		count++;
 	}
 	shift3(a, b, count_stack(a));
+
+	/*ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");*/
+	
 	va_3(a, b);
 	if (check_algo1(a, b))
 	{
 		algo_l(a, b);
 		ft_lstclear(a);
-		exit(1);
+		exit(0);
 	}
-	return3(a, b, total - 6);
+	
+	/*ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");*/
+	
+	return_x(a, b, total/2);
 	
 	if (check_algo1(a, b))
 	{
 		algo_l(a, b);
 		ft_lstclear(a);
-		exit(1);
+		exit(0);
 	}
+	
+		/*ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");*/
+
 	shift3_l(a, b, count_stack(b));
 	if (check_algo1(a, b))
 	{
@@ -56,32 +87,45 @@ void va_12(t_stack **a, t_stack **b, int total)
 		ft_lstclear(a);
 		exit(1);
 	}
+	/*ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");*/
+	
 	va_3_mirr(b, a);
 	if (check_algo1(a, b))
 	{
 		algo_l(a, b);
 		ft_lstclear(a);
-		exit(1);
+		exit(0);
 	}
-
-	return3_alt(a, b, 6);
-	ft_printf("This is a stack:\n");
+	/*ft_printf("This is a stack:\n");
 	lst_check(a);
 	ft_printf("\n");
 	ft_printf("This is b stack:\n");
 	lst_check(b);
-	ft_printf("\n");
+	ft_printf("\n");*/
+	
+	return_xalt(a, b, total);
 	if (check_algo1(a, b))
 	{
 		algo_l(a, b);
 		ft_lstclear(a);
-		exit(1);
+		exit(0);
 	}
-	while (count_stack(b) > 0)
+	/*ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");*/
+
+	while (count_stack(b) > 1)
 	{
-		seq = find_target(b, total, count);
+		seq = find_largtar(b);
 		count2 = 2;
-		count = 1;
 		if (seq <= ((count_stack(b))/2))
 		{
 			while (count2 <= seq)
@@ -101,11 +145,17 @@ void va_12(t_stack **a, t_stack **b, int total)
 
 		}
 		pa(b, a);
-		count++; 
 	}
+	pa(b, a);
+	/*ft_printf("This is a stack:\n");
+	lst_check(a);
+	ft_printf("\n");
+	ft_printf("This is b stack:\n");
+	lst_check(b);
+	ft_printf("\n");*/
 }
 
-void	return3(t_stack **a, t_stack **b, int bleft)
+void	return_x(t_stack **a, t_stack **b, int bleft)
 {
 	int	a5;
 
@@ -149,10 +199,14 @@ void	return3(t_stack **a, t_stack **b, int bleft)
 			va_3(a, b);
 		}
 }
-void	return3_alt(t_stack **a, t_stack **b, int bleft)
+void	return_xalt(t_stack **a, t_stack **b, int total)
 {
 	int	b5;
-
+	int	bleft;
+	if (total%2 == 1)
+		bleft = total/2 + 1;
+	else
+		bleft = total/2;
 	while(count_stack(a) > bleft)
 		{
 			b5 = ft_lstlast(*b)->data;
@@ -190,7 +244,6 @@ void	return3_alt(t_stack **a, t_stack **b, int bleft)
 				rrb(b);
 				rrb(b);
 			}
-			va_3_mirr(b, a);
 		}
 }
 
@@ -290,10 +343,10 @@ int	find_target(t_stack **stack, int total, int count)
 	sm = alt_smallest(stack);
 	sm_2 = alt_smallest2(stack);
 	sm_3 = alt_smallest3(stack);
-	ft_printf("This is a stack:\n");
+	/*ft_printf("This is a stack:\n");
 	lst_check(stack);
 	ft_printf("\n");
-	ft_printf("%i-%i-%i\n", sm, sm_2, sm_3);
+	ft_printf("%i-%i-%i\n", sm, sm_2, sm_3);*/
 	if(count > (total/2 - 2))
 		{
 		sm_2 = -1;
@@ -311,60 +364,70 @@ int	find_target(t_stack **stack, int total, int count)
 	}
 	return (0);
 }
-int	find_largtar(t_stack **stack, int total, int count)
+int	find_largtar(t_stack **stack)
 {
 	int	lg;
-	int	lg_2;
-	int	lg_3;
+	/*int	lg_2;
+	int	lg_3;*/
 	int	x;
 
 	lg = alt_largest(stack);
-	lg_2 = alt_largest2(stack);
+	/*lg_2 = alt_largest2(stack);
 	lg_3 = alt_largest3(stack);
-	if(count > (total/2 - 2))
+	if(count_stack(b) < 3)
 		{
-		sm_2 = -1;
-		sm_3 = -1;
-		}
+		lg_2 = -1;
+		lg_3 = -1;
+		}*/
 	x = 0;
-	while(x < ((total - count)/2 + 1))
+	while(x < (count_stack(stack)/2)+1)
 	{
-		if(1 + x == sm || 1 + x == sm_2 || 1 + x == sm_3)
+		if(1 + x == lg /*|| 1 + x == lg_2 || 1 + x == lg_3*/)
 			return (1 + x);
-		if((total - count + 1 - x) == sm || (total - count + 1 - x) == sm_2 ||\
-		 (total - count + 1 - x) == sm_3)
-			return (total - count + 1 - x);
+		if((count_stack(stack) - x) == lg /*|| (total - count + 1 - x) == sm_2 ||\
+		 (total - count + 1 - x) == lg_3*/)
+			return (count_stack(stack) - x);
 		x++;
 	}
 	return (0);
+}
+
+int	alt_largest(t_stack **stack)
+{
+	t_stack *tmp;
+	int	lg;
+	int	seq;
+	
+	lg = largest(stack);
+	tmp = *stack;
+	seq = 1;
+	while (tmp)
+	{
+		if(lg == tmp->data)
+			return(seq);
+		tmp = (tmp)->next;
+		seq++;
+	}
+	return(0);
 }
 
 int	alt_smallest(t_stack **stack)
 {
 	t_stack *tmp;
-	t_stack *tmp2;
 	int	sm;
 	int	seq;
 	
-	sm = (*stack)->data;
-	tmp = (*stack)->next;
+	sm = smallest(stack);
+	tmp = *stack;
 	seq = 1;
 	while (tmp)
 	{
-		if(sm > tmp->data)
-		{
-			sm = tmp->data;
-			tmp2 = *stack;
-			seq = 1;
-			while( tmp2 != tmp)
-			{
-				tmp2 = tmp2->next;
-				seq++;
-			}
-		}
+		if(sm == tmp->data)
+			return(seq);
 		tmp = (tmp)->next;
+		seq++;
 	}
-	return(seq);
+	return(0);
 }
 
 int	alt_smallest2(t_stack **stack)
