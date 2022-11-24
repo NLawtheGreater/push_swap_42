@@ -23,6 +23,7 @@ typedef struct s_stack
     struct s_stack* next;
 }					t_stack;
 
+void	lst_check(t_stack **lst);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int data);

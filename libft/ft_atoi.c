@@ -31,7 +31,8 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 	if (!((str[start] == '-' && (str[start + 1] >= '1' && str[start + 1] <= '9')) ||\
 	 (str[start] >= '0' && str[start] <= '9')))
 	{	
-		ft_lstclear(a);
+		if (a)
+			ft_lstclear(a);
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
@@ -47,7 +48,8 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 		if (!(str[start] >= '0' && str[start] <= '9') ||\
 		sigma > (INT_MAX) || (sigma * negcount) < INT_MIN)
 		{
-			ft_lstclear(a);
+			if (*a)
+				ft_lstclear(a);
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}

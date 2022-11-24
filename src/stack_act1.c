@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_act1.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <niclaw@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/22 16:33:35 by niclaw            #+#    #+#             */
+/*   Updated: 2022/11/22 16:33:37 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -13,7 +25,7 @@ void sa(t_stack **a)
 	ft_printf("sa\n");
 }
 
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -26,7 +38,7 @@ void sb(t_stack **b)
 	ft_printf("sb\n");
 }
 
-void ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -45,7 +57,7 @@ void ss(t_stack **a, t_stack **b)
 	ft_printf("ss\n");
 }
 
-void pa(t_stack **b, t_stack **a)
+void	pa(t_stack **b, t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -58,10 +70,10 @@ void pa(t_stack **b, t_stack **a)
 	ft_printf("pa\n");
 }
 
-void pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-	
+
 	if (*a)
 	{
 		tmp = ft_lstnew((*a)->data);
