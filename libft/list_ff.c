@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_f.c                                           :+:      :+:    :+:   */
+/*   list_ff.c                                           :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,70 +12,28 @@
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-	t_stack	*ptr;
-
 	if (new)
 	{
-		if (!*lst)
+		if (!lst)
 		{
 			*lst = new;
+			return ;
 		}
-		else
-		{
-			ptr = ft_lstlast(*lst);
-			ptr->next = new;
-		}
+		new->next = *lst;
+		*lst = new;
 	}
 }
 
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	*ft_lstnew(int data)
 {
-	t_stack	*ptr;
+	t_stack	*head;
 
-	if (!lst)
+	head = malloc(sizeof(t_stack));
+	if (!head)
 		return (NULL);
-	ptr = lst;
-	while (ptr->next)
-		ptr = ptr->next;
-	return (ptr);
-}
-
-void	lst_check(t_stack **lst)
-{
-	t_stack	*tmp;
-
-	if (!*lst)
-		return ;
-	tmp = *lst;
-	while (tmp != NULL)
-	{
-		ft_printf("%i\n", tmp->data);
-		tmp = tmp->next;
-	}
-}
-
-void	ft_lstclear(t_stack **lst)
-{
-	t_stack	*ptr;
-
-	if (!*lst)
-		return ;
-	while (*lst)
-	{
-		ptr = (*lst)->next;
-		free (*lst);
-		*lst = ptr;
-	}
-	*lst = NULL;
-}
-
-void	ft_lstdelfront(t_stack **lst)
-{
-	t_stack	*ptr;
-
-	ptr = (*lst)->next;
-	free(*lst);
-	*lst = ptr;
+	head->data = data;
+	head->next = NULL;
+	return (head);
 }

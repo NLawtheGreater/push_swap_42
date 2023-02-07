@@ -10,19 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <stdio.h>
 # include "libft.h"
- /*main functions*/
+
+/*main functions*/
 int		main_con(t_stack **a, t_stack **b);
 int		check_dup(t_stack **a);
 void	sort_man(t_stack **a, t_stack **b);
 void	sort_man5(t_stack **a, t_stack **b);
-
 void	sort_man5_con(t_stack **a, t_stack **b, int seq);
 void	sort_man3(t_stack **a);
+
 /*insert functions*/
 void	sort_insrt(t_stack **a, t_stack	**b);
 int		e1_into_stack(t_stack **a, t_stack **b, char x);
@@ -35,7 +36,7 @@ int		check_stack_con(t_stack *tmp);
 
 /*quick functions*/
 void	sort_quick(t_stack **a, t_stack	**b);
-void	quick_a(t_stack **a, t_stack	**b, 	int size);
+void	quick_a(t_stack **a, t_stack	**b, int size);
 void	quick_b(t_stack **a, t_stack	**b, int size);
 void	quick_1a(t_stack **a, t_stack	**b, int size);
 int		quick_1a_con(t_stack **a, t_stack**b, int size, int *record);
@@ -85,12 +86,10 @@ void	sort_man4_b19(t_stack **a, t_stack **b, int *size, int b3);
 void	sort_man4_b20(t_stack **a, t_stack **b, int *size, int b3);
 void	sort_man4_b21(t_stack **a, t_stack **b, int *size, int b3);
 
-
 void	sort_man_v2a(t_stack **a, t_stack **b, int size);
 void	sort_man3_v2a_1(t_stack **a, int *size);
 void	sort_man3_v2a_2(t_stack **a, t_stack	**b, int *size);
 void	sort_man3_v2a_3(t_stack **a, t_stack	**b, int *size);
-
 
 void	sort_man3_v2a_4(t_stack **a, t_stack	**b, int *size);
 

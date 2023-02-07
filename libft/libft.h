@@ -16,18 +16,17 @@
 # include <stdarg.h>
 # include <limits.h>
 
-
 typedef struct s_stack
 {
-    int 			data;
-    struct s_stack* next;
+	int				data;
+	struct s_stack	*next;
 }					t_stack;
 
 void	lst_check(t_stack **lst);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int data);
-int	check_dup(t_stack **a);
+int		check_dup(t_stack **a);
 void	ft_lstclear(t_stack **lst);
 void	ft_lstdelfront(t_stack **lst);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);

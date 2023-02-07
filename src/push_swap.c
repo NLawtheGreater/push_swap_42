@@ -53,11 +53,6 @@ int	main_con(t_stack **a, t_stack **b)
 		return (1);
 	}
 	check_dup(a);
-	/*if (check_max(a) == 1)
-	{
-		ft_lstclear(a);
-		return (1);
-	}*/
 	if (check_stack(a, 'a'))
 	{
 		ft_lstclear(a);

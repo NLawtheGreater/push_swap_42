@@ -12,7 +12,6 @@
 #include "libft.h"
 #include <stdio.h>
 
-
 /*static int	overlength(int negcount, const char *str, int i, long long sigma)
 {
 	if ((negcount == -1) && ((sigma > (9223372036854775807 / 10))
@@ -29,9 +28,9 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 	long long	sigma;
 	int			negcount;
 
-	if (!((str[start] == '-' && (str[start + 1] >= '1' && str[start + 1] <= '9')) ||\
-	 (str[start] >= '0' && str[start] <= '9')))
-	{	
+	if (!((str[start] == '-' && (str[start + 1] >= '1' && str[start + 1]\
+	 <= '9')) || (str[start] >= '0' && str[start] <= '9')))
+	{
 		if (a)
 			ft_lstclear(a);
 		ft_putstr_fd("Error\n", 2);
@@ -46,7 +45,7 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 	sigma = 0;
 	while (str[start] != '\0')
 	{
-		if (!(str[start] >= '0' && str[start] <= '9') ||\
+		if (!(str[start] >= '0' && str[start] <= '9') || \
 		sigma > INT_MAX || (sigma * negcount) < INT_MIN)
 		{
 			if (*a)
@@ -60,7 +59,7 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 	return (negcount * sigma);
 }
 
-int	ft_atoi(char *str, t_stack** a)
+int	ft_atoi(char *str, t_stack **a)
 {
 	return (rec_atoi(str, 0, a));
 }
