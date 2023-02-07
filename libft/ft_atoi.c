@@ -28,14 +28,7 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 	long long	sigma;
 	int			negcount;
 
-	if (!((str[start] == '-' && (str[start + 1] >= '1' && str[start + 1]\
-	 <= '9')) || (str[start] >= '0' && str[start] <= '9')))
-	{
-		if (a)
-			ft_lstclear(a);
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
+	
 	negcount = 1;
 	if (str[start] == '-')
 	{
@@ -61,6 +54,14 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 
 int	ft_atoi(char *str, t_stack **a)
 {
+	if (!((str[0] == '-' && (str[1] >= '1' && str[1] \
+ <= '9')) || (str[0] >= '0' && str[0] <= '9')))
+	{
+		if (a)
+			ft_lstclear(a);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	return (rec_atoi(str, 0, a));
 }
 
