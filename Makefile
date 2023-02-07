@@ -82,21 +82,22 @@ WHITE	= \033[1;37m
 # if needed
 MSG = "Upload to git"
 
+
 ### RULES ###
 
-.c.o:	${HEAD} ${LIBDIR} ${DIRSRC} ${SHARE_DIR}
+.c.o:	${SRCS}
 	@mkdir -p ${addprefix ${BUILD}, ${DIRSRC}}
 	@mkdir -p ${addprefix ${BUILD}, ${SHARE_DIR}}
 	@mkdir -p ${addprefix ${BUILD}, ${BONUS_DIR}}
 	${CC} ${CFLAGS} -I ${LIBDIR} -I ${HEAD} \
 	 -c $< -o ${addprefix ${BUILD}, ${<:.c=.o}}
 
-all:	${NAME}
-
 ${NAME}:	${OBJS} ${SHARE_OBJS} ${LIBFT} 
 	@${CC} ${CFLAGS} ${addprefix ${BUILD}, ${OBJS}} ${addprefix ${BUILD}, ${SHARE_OBJS}}\
 	${LIBFT} -o ${NAME}
 	@echo "$(GREEN) $@ Linking Done!$(NOC)" 
+
+all: ${NAME}
 
 ${LIBFT}:
 	make -C ${LIBDIR}
@@ -169,4 +170,94 @@ help:
 	@echo "$(RED)| $(YELLOW)make mem      $(RED)|$(NOC)"
 	@echo "$(RED)==================$(NOC)"
 
-.PHONY:	all clean fclean re bonus test mem
+.PHONY:	all clean fclean re bonus test t1 t2 mem tester norm name
+
+# this will add the file dependencies below, i.e. it modifies this file
+depend:
+		makedepend -I${HEAD} -I${LIBDIR} -- ${DIRSRC}$(SRCS)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+
+src/push_swap_con.o: include/push_swap.h /usr/include/stdlib.h
+src/push_swap_con.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/push_swap_con.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/push_swap_con.o: /usr/include/limits.h
+src/sort_quick_man4a_3.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4a_3.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4a_3.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4a_3.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4a_2.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4a_2.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4a_2.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4a_2.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4a.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4a.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4a.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4a.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4b_5.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4b_5.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4b_5.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4b_5.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4b_4.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4b_4.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4b_4.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4b_4.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4b_3.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4b_3.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4b_3.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4b_3.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4b_2.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4b_2.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4b_2.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4b_2.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man4b.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man4b.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man4b.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man4b.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man3.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man3.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man3.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man3.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man2.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man2.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man2.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man2.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick_man.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick_man.o: /usr/include/stdio.h libft/libft.h
+src/sort_quick_man.o: /usr/include/unistd.h /usr/include/features.h
+src/sort_quick_man.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_quick3.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick3.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/sort_quick3.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/sort_quick3.o: /usr/include/limits.h
+src/sort_quick2.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick2.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/sort_quick2.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/sort_quick2.o: /usr/include/limits.h
+src/utils.o: include/push_swap.h /usr/include/stdlib.h /usr/include/stdio.h
+src/utils.o: libft/libft.h /usr/include/unistd.h /usr/include/features.h
+src/utils.o: /usr/include/stdc-predef.h /usr/include/limits.h
+src/sort_insrt.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_insrt.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/sort_insrt.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/sort_insrt.o: /usr/include/limits.h
+src/sort_quick.o: include/push_swap.h /usr/include/stdlib.h
+src/sort_quick.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/sort_quick.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/sort_quick.o: /usr/include/limits.h
+src/push_swap.o: include/push_swap.h /usr/include/stdlib.h
+src/push_swap.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/push_swap.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/push_swap.o: /usr/include/limits.h
+src/stack_act3.o: include/push_swap.h /usr/include/stdlib.h
+src/stack_act3.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/stack_act3.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/stack_act3.o: /usr/include/limits.h
+src/stack_act1.o: include/push_swap.h /usr/include/stdlib.h
+src/stack_act1.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/stack_act1.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/stack_act1.o: /usr/include/limits.h
+src/stack_act2.o: include/push_swap.h /usr/include/stdlib.h
+src/stack_act2.o: /usr/include/stdio.h libft/libft.h /usr/include/unistd.h
+src/stack_act2.o: /usr/include/features.h /usr/include/stdc-predef.h
+src/stack_act2.o: /usr/include/limits.h

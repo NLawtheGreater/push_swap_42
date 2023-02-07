@@ -12,6 +12,7 @@
 #include "libft.h"
 #include <stdio.h>
 
+
 /*static int	overlength(int negcount, const char *str, int i, long long sigma)
 {
 	if ((negcount == -1) && ((sigma > (9223372036854775807 / 10))
@@ -46,7 +47,7 @@ static int	rec_atoi(char *str, int start, t_stack **a)
 	while (str[start] != '\0')
 	{
 		if (!(str[start] >= '0' && str[start] <= '9') ||\
-		sigma > (INT_MAX) || (sigma * negcount) < INT_MIN)
+		sigma > INT_MAX || (sigma * negcount) < INT_MIN)
 		{
 			if (*a)
 				ft_lstclear(a);

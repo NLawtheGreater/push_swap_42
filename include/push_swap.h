@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include "libft.h"
  /*main functions*/
-void	main_con(t_stack **a, t_stack **b);
+int		main_con(t_stack **a, t_stack **b);
 int		check_dup(t_stack **a);
 void	sort_man(t_stack **a, t_stack **b);
 void	sort_man5(t_stack **a, t_stack **b);

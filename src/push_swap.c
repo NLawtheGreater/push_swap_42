@@ -42,21 +42,26 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	b = NULL;
-	main_con(&a, &b);
+	return (main_con(&a, &b));
 }
 
-void	main_con(t_stack **a, t_stack **b)
+int	main_con(t_stack **a, t_stack **b)
 {
 	if (count_stack(a) == 1)
 	{	
 		ft_lstclear(a);
-		return ;
+		return (1);
 	}
 	check_dup(a);
+	/*if (check_max(a) == 1)
+	{
+		ft_lstclear(a);
+		return (1);
+	}*/
 	if (check_stack(a, 'a'))
 	{
 		ft_lstclear(a);
-		return ;
+		return (0);
 	}
 	if (count_stack(a) >= 2 && count_stack(a) <= 5)
 		sort_man(a, b);
@@ -65,6 +70,7 @@ void	main_con(t_stack **a, t_stack **b)
 	else if (count_stack(a) >= 41)
 		sort_quick(a, b);
 	ft_lstclear(a);
+	return (0);
 }
 
 int	check_dup(t_stack **a)
@@ -106,7 +112,7 @@ void	sort_man(t_stack **a, t_stack **b)
 	{
 		sort_man5(a, b);
 		sort_man3(a);
-		if(count_stack(b) == 2)
+		if (count_stack(b) == 2)
 		{
 			if ((*b)->data < (*b)->next->data)
 				sb(b);
